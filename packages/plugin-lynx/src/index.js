@@ -1,4 +1,5 @@
 import {Blockchains, Network, Plugin, PluginTypes, SocketService, WALLET_METHODS} from 'scatterjs-core';
+import ecc from 'eosjs-ecc';
 
 let network;
 

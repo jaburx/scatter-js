@@ -2,6 +2,7 @@
 	"name": "scatterjs",
 	"version": "1.0.0",
 	"description": "",
+	"main": "./packages/plugin-lynx/dist/index.js",
 	"scripts": {
 		"postinstall": "lerna bootstrap",
 		"build": "lerna exec -- babel --out-dir dist src",

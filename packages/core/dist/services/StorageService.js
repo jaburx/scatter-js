@@ -1,1 +1,40 @@
-"use strict";var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _classCallCheck2=_interopRequireDefault(require("@babel/runtime/helpers/classCallCheck")),_createClass2=_interopRequireDefault(require("@babel/runtime/helpers/createClass")),storage={},getWindow=function(){return"undefined"==typeof window?{localStorage:{setItem:function c(a,b){return storage[a]=b},getItem:function b(a){return storage[a]||null},removeItem:function b(a){return delete storage[a]}}}:window},StorageService=/*#__PURE__*/function(){function a(){(0,_classCallCheck2.default)(this,a)}return(0,_createClass2.default)(a,null,[{key:"setAppKey",value:function b(a){getWindow().localStorage.setItem("appkey",a)}},{key:"getAppKey",value:function a(){return getWindow().localStorage.getItem("appkey")}},{key:"removeAppKey",value:function a(){return getWindow().localStorage.removeItem("appkey")}},{key:"setNonce",value:function b(a){getWindow().localStorage.setItem("nonce",a)}},{key:"getNonce",value:function a(){return getWindow().localStorage.getItem("nonce")}},{key:"removeNonce",value:function a(){return getWindow().localStorage.removeItem("nonce")}}]),a}();exports.default=StorageService;
+let storage = {};
+const getWindow = () => {
+    if (typeof window !== 'undefined') return window;
+    return {
+        localStorage: {
+            setItem: (key, val) => storage[key] = val,
+            getItem: key => storage[key] || null,
+            removeItem: key => delete storage[key]
+        }
+    };
+};
+
+export default class StorageService {
+
+    constructor() {}
+
+    static setAppKey(appkey) {
+        getWindow().localStorage.setItem('appkey', appkey);
+    }
+
+    static getAppKey() {
+        return getWindow().localStorage.getItem('appkey');
+    }
+
+    static removeAppKey() {
+        return getWindow().localStorage.removeItem('appkey');
+    }
+
+    static setNonce(nonce) {
+        getWindow().localStorage.setItem('nonce', nonce);
+    }
+
+    static getNonce() {
+        return getWindow().localStorage.getItem('nonce');
+    }
+
+    static removeNonce() {
+        return getWindow().localStorage.removeItem('nonce');
+    }
+}
